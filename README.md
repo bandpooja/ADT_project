@@ -21,11 +21,11 @@ The following images depict the graph database:
 
 
 The following graph depicts products and category relationship
-<img src="graph_1.png" width="100" height="100">
+<img src="graph_1.png" width="500" height="500">
 
 
 The following graph depicts employees and their managers
-<img src="graph_2.png" width="100" height="100">
+<img src="graph_2.png" width="500" height="500">
 
 
 
