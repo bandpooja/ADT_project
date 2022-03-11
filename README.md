@@ -17,3 +17,15 @@ Tuples - 3308
 ### Graph Database
 We loaded the csv files into Neo4j. We defined the nodes and relationships to create the graph database using Cypher queries. 
 
+The following images depict the graph database:
+
+
+The following graph depicts products and category relationship
+![Alt text](graph_1.png)
+
+
+The following graph depicts employees and their managers
+![Alt text](graph_2.png)
+
+
+
