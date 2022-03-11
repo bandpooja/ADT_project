@@ -2,4 +2,9 @@
 ## Database Selection
 
 ### Northwind Database
-The Northwind sample database is based on a fictitious company called Northwind Traders, which imports and exports specialty foods from around the world.
+The Northwind sample database is based on a fictitious company called Northwind Traders, which imports and exports specialty foods from around the world. It is a commonly-used SQL datasets which are graphic enough.
+
+#### Specifications-
+size - 1.01 MB
+Relations - 13
+Tuples - 3308
