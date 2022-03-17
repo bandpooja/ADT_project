@@ -14,7 +14,7 @@ size - 1.01 MB,
 Relations - 13,
 Tuples - 3308
 
-###Relational Database
+### Relational Database
 We have loaded the nothwind database into the sql server and performed some queries on it.
 
 The following images depict the table from the executed queries
