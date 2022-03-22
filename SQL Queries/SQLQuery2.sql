@@ -90,12 +90,3 @@ union
 select City, CompanyName, ContactName, 'Suppliers'
 from Suppliers
 order by City, CompanyName;
-
-
-
-
-
-
-
-
-
