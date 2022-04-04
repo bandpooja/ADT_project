@@ -15,7 +15,7 @@ import database.Sql.SQLDatabaseConnection;
 public class C2STestUsage {
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
         // these need to be set before anything can occur.
-        String propsFile = "C:/Users/bandp/Downloads/cyp2sql-master/c2s_props.properties";
+        String propsFile = "c2s_props.properties";
         C2SProperties props = new C2SProperties(propsFile);
 
         // name of the blank database to either:
@@ -36,7 +36,7 @@ public class C2STestUsage {
             case "translate":
                 // location of the script to allow results from Postgres to be piped back to
                 // this class. View and adapt the scripts if necessary.
-                String scriptLoc = "C:/Users/bandp/Downloads/cyp2sql-master/pgdbPlay.bat";
+                String scriptLoc = "pgdbPlay.bat";
 
                 // Cypher query to translate and then execute.
                 String cypher = "MATCH (a)-[e]->(b:Process) WHERE e.state > 5 WITH b MATCH (c) WHERE (exists(c.pid) AND c.pid < b.pid) WITH c MATCH (c)<--(d:Local) WHERE any(n in d.name WHERE n = '4') RETURN count(d) AS cool_thing;"
