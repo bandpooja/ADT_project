@@ -1,48 +1,67 @@
-SELECT ProductName, QuantityPerUnit 
-FROM Products;
+select * from Employees;
+
+select * from Categories;
+select * from Customers;
+select * from EmployeeTerritories;
+select * from Region;
+select * from Shippers;
+select * from Suppliers;
+select * from Territories;
+
+select * from Products;
+
+select * from [Order Details];
+
+select * from Orders;
+
 
 --Current List of Products
-SELECT *
-FROM Products
-
+set statistics time on
 SELECT ProductID, ProductName
 FROM Products
 WHERE Discontinued = 0
 ORDER BY ProductName;
+set statistics time off
 
+/*result
+SQL Server Execution Times:
+CPU time = 0 ms,  elapsed time = 0 ms.
+*/
 
-SELECT CompanyName, Phone, null as "ContactName"
-FROM Shippers
-    UNION
-SELECT CompanyName, Phone, ContactName
-FROM Customers
-    UNION
-SELECT CompanyName, Phone, ContactName
-FROM Suppliers
-GROUP BY CompanyName, Phone, ContactName
 
 
 --Alphabetical List of Products
-select * from Categories
-
-select * from Products
-
+set statistics time on
 select distinct b.*, a.CategoryName
 from Categories a 
 inner join Products b on a.CategoryID = b.CategoryID
 where b.Discontinued = 0
 order by b.ProductName;
+set statistics time off
+
+/*result
+SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 1 ms.
+*/
+
 
 --Employee Sales by Country
-
+set statistics time on
 select distinct b.*, a.CategoryName
 from Categories a 
 inner join Products b on a.CategoryID = b.CategoryID
 where b.Discontinued = 0
 order by b.ProductName;
+set statistics time off
+
+/*result
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+*/
+
 
 --Order Details Extended
-
+set statistics time on
 select distinct y.OrderID, 
     y.ProductID, 
     x.ProductName, 
@@ -53,12 +72,17 @@ select distinct y.OrderID,
 from Products x
 inner join [Order Details] y on x.ProductID = y.ProductID
 order by y.OrderID;
+set statistics time off
 
+/*result
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 406 ms.
+*/
 
 
 --Sales by Category
 
-
+set statistics time on
 select distinct a.CategoryID, 
     a.CategoryName,  
     b.ProductName, 
@@ -70,23 +94,32 @@ inner join Categories a on a.CategoryID = b.CategoryID
 where d.OrderDate between '1997/1/1' and '1997/12/31'
 group by a.CategoryID, a.CategoryName, b.ProductName
 order by a.CategoryName, b.ProductName, ProductSales;
+set statistics time off
 
---Ten Most Expensive Products
-
-select distinct ProductName as Ten_Most_Expensive_Products, 
-         UnitPrice
-from Products as a
-where 10 >= (select count(distinct UnitPrice)
-                    from Products as b
-                    where b.UnitPrice >= a.UnitPrice)
-order by UnitPrice desc;
+/*result
+SQL Server Execution Times:
+   CPU time = 15 ms,  elapsed time = 8 ms.
+*/
  
 
  --Customers and Suppliers by City
-
+set statistics time on
  select City, CompanyName, ContactName, 'Customers' as Relationship 
 from Customers
 union
 select City, CompanyName, ContactName, 'Suppliers'
 from Suppliers
 order by City, CompanyName;
+set statistics time off
+
+/*result
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 3 ms.
+*/
+
+
+
+
+
+
+
